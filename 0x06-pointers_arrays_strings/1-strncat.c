@@ -1,11 +1,12 @@
 #include "main.h"
 /**
- * _strcat - concatenates two strings,
- * @dest: destination.
- * @src: source.
- * Return: the pointer to dest.
+ * _strncat - concatenates two strings,
+ * @dest: input valeu.
+ * @src: input value.
+ * @n: input value.
+ * Return: dest.
  */
-char *_strcat(char *dest, char *src)
+char *_strncat(char *dest, char *src, int n)
 {
 	int count = 0, count2 = 0;
 
@@ -14,7 +15,7 @@ char *_strcat(char *dest, char *src)
 		count++;
 	}
 
-	while (count2 >= 0)
+	while (count2 < n)
 	{
 		*(dest + count) = *(src + count2);
 		if (*(src + count2) == '\0')
