@@ -1,25 +1,36 @@
-#include <stdio.h>
+#include "main.h"
+
 /**
- * checker - checks the input number from n to the base
- * @num: number is squared and compared against base
- * @psqrt: base number to check
- * Return: natural square root of number base
+ * _sqrt - finds the square root of a value
+ * @prev: previous value
+ * @root: the square value
+ * Return: the square root
  */
-int helperfunction(int num, int psqrt)
+int _sqrt(int prev, int root)
 {
-	if (num * num == psqrt)
-		return (psqrt);
-	if (num * num > psqrt)
+	if (prev > root)
+	{
 		return (-1);
-	return (helperfunction(num + 1, psqrt));
+	}
+	else if (prev * prev == root)
+	{
+		return (prev);
+	}
+
+	return (_sqrt(prev + 1, root));
 }
+
 /**
- * _sqrt_recursion - return the natural square root of a number n.
- * @n: number to check for square roots.
- * Return: the natural square root of number n
+ * _sqrt_recursion - recursive square root of a number
+ * @n: the integer
+ * Return: square root
  */
 int _sqrt_recursion(int n)
 {
-	return (helperfunction(1, n));
-}
+	if (n < 0)
+	{
+		return (-1);
+	}
 
+	return (_sqrt(1, n));
+}
